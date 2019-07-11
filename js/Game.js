@@ -13,6 +13,7 @@ class Game { //Here the game class is declared.
 
         ];
         this.activePhrase ="null";
+        
     }
 
 }
