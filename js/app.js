@@ -8,12 +8,13 @@
 // game.phrases.forEach((phrase, index )=> {
 //     console.log(`Phrase ${index} -phrase: ${phrase.phrase}`);
 // });
-const logPhrase = (phrase) => {
-    console.log(`Phrases - phrases: `, phrase.phrase);
-};
+// const logPhrase = (phrase) => {
+//     console.log(`Phrases - phrases: `, phrase.phrase);
+// };
 const game = new Game();
-logPhrase(game.getRandomPhrase());
-logPhrase(game.getRandomPhrase());
-logPhrase(game.getRandomPhrase());
-logPhrase(game.getRandomPhrase());
-logPhrase(game.getRandomPhrase());
+game.getRandomPhrase().addPhraseToDisplay();
+// logPhrase(game.getRandomPhrase());
+// logPhrase(game.getRandomPhrase());
+// logPhrase(game.getRandomPhrase());
+// logPhrase(game.getRandomPhrase());
+// logPhrase(game.getRandomPhrase());
