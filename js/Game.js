@@ -12,11 +12,30 @@ class Game { //Here the game class is declared.
              new Phrase("It all gets better with time")
 
         ];
-        this.activePhrase ="null";
+        this.activePhrase = null;
         
     }
     getRandomPhrase() {
         let phraseIndex = Math.floor(Math.random() * (this.phrases.length));
         return this.phrases[phraseIndex];
-      }
-}
+    }
+    
+    
+    startGame(){
+       $('#overlay').hide();
+       this.activePhrase = this.getRandomPhrase();
+       this.activePhrase.addPhraseToDisplay();
+    }
+
+    checkForWin(){
+        return $('.letter.hide').length === 0;
+    }
+    
+    removeLife() {
+        //$('.tries img' ).find('liveHeart.png').attr( 'src', 'images/lostHeart.png');
+        //$('.tries' ).find('liveHeart.png').replaceWith('lostHeart.png');
+        $('#scoreboard').find(this.missed).replaceWith('lostHeart.png');
+    }
+    
+} 
+
