@@ -32,9 +32,9 @@ class Game { //Here the game class is declared.
     }
     
     removeLife() {
-        //$('.tries img' ).find('liveHeart.png').attr( 'src', 'images/lostHeart.png');
+        $('.tries').find('img[src="images/liveHeart.png"]').first.attr( 'src', 'images/lostHeart.png');
         //$('.tries' ).find('liveHeart.png').replaceWith('lostHeart.png');
-        $('#scoreboard').find(this.missed).replaceWith('lostHeart.png');
+        //$('#scoreboard').find(this.missed).replaceWith('lostHeart.png');
     }
     
 } 
