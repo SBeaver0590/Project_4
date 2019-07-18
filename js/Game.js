@@ -32,19 +32,24 @@ class Game { //Here the game class is declared.
     }
 
     removeLife() {
-        $('.tries img[src="images/liveHeart.png"]:first').attr('src', 'images/lostHeart.png');
-        //$('.tries' ).find('liveHeart.png').replaceWith('lostHeart.png');
-        //$('#scoreboard').find(this.missed).replaceWith('lostHeart.png');
+       
+        $('.tries img[src="images/liveHeart.png"]:first').attr('src', 'images/lostHeart.png', 'missed.tries');
+    //     if('this.missed' > 4++){
+    //         gameOver(true);
+    // }
+        if(this.missed == 4) {
+            this.gameOver(false);
+        }else
+        this.missed++;
     }
-
     handleInteraction(letter) {
         let button = 'button.key:contains('+letter+')';
         $(button).prop('disabled', true); 
-        if (!$(this.activePhrase.checkLetter(letter))) {
-            $(button).addClass('.wrong');
+        if (!this.activePhrase.checkLetter(letter)) {
+            $(button).addClass('wrong');
             this.removeLife(); 
         } else {
-            $(button).addClass('.chosen')
+            $(button).addClass('chosen')
             this.activePhrase.showMatchedLetter(letter);
         }
     }
