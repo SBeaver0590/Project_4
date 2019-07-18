@@ -28,7 +28,12 @@ class Game { //Here the game class is declared.
     }
 
     checkForWin() {
-        return $('.letter.hide').length === 0;
+        let showLength = $('.show').length;
+        let letterLength = $('.letter').length;
+        if(showLength === letterLength) {
+            this.gameOver(true);
+        }
+
     }
 
     removeLife() {
@@ -42,15 +47,19 @@ class Game { //Here the game class is declared.
         }else
         this.missed++;
     }
+
     handleInteraction(letter) {
         let button = 'button.key:contains('+letter+')';
         $(button).prop('disabled', true); 
         if (!this.activePhrase.checkLetter(letter)) {
             $(button).addClass('wrong');
             this.removeLife(); 
-        } else {
+        }else{
+        if (this.activePhrase.checkLetter(letter)) {
             $(button).addClass('chosen')
             this.activePhrase.showMatchedLetter(letter);
+            this.checkForWin();
+        }
         }
     }
     
@@ -65,5 +74,5 @@ class Game { //Here the game class is declared.
         $('#overlay').show();
         return true;
     }
-
+   
 };
