@@ -11,7 +11,7 @@
 // const logPhrase = (phrase) => {
 //     console.log(`Phrases - phrases: `, phrase.phrase);
 // };
-// const game = new Game();
+//const game = new Game();
 // const randomPhrase = game.getRandomPhrase();
 // const phrase = new Phrase(randomPhrase.phrase);
 // phrase.addPhraseToDisplay();
@@ -30,8 +30,9 @@ $('#btn__reset').click(function(){
 });
 
 $('.keyrow .key').click(function(e){
-    console.log(e.target.innerText);
-    game.handleInteraction(e.target.innerText);
+    //console.log(e.target.innerText);
+    game.handleInteraction(e.target.innerText
+    );
 });
 
 
