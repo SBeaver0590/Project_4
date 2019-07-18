@@ -74,7 +74,7 @@ class Game { //Here the game class is declared.
         }
         this.activePhrase = ''
         $('#phrase ul li').remove();
-        $('.key').attr('disable', false).removeClass('chosen').removeClass('wrong');
+        $('.key').removeAttr('disabled').removeClass('chosen').removeClass('wrong');
         $(".tries img").attr("src", "images/liveHeart.png");
     }
 };
