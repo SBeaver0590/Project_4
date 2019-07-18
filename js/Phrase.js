@@ -35,7 +35,6 @@ class Phrase {
         $('.letter.' + letter).removeClass('hide').addClass('show');
     }
 
-    
 };
 
 

@@ -54,12 +54,13 @@ class Game { //Here the game class is declared.
         if (!this.activePhrase.checkLetter(letter)) {
             $(button).addClass('wrong');
             this.removeLife(); 
-        }else{
-        if (this.activePhrase.checkLetter(letter)) {
-            $(button).addClass('chosen')
+        }else {
+            $(button).addClass('chosen');
             this.activePhrase.showMatchedLetter(letter);
             this.checkForWin();
         }
+        if(this.checkForWin(true)) {
+            this.gameOver();
         }
     }
     
@@ -71,8 +72,11 @@ class Game { //Here the game class is declared.
             $('#overlay').addClass('lose').removeClass('win');
             $('#game-over-message').text('Better Luck next, Give It Another Try!');
         }
+        this.activePhrase = ''
         $('#overlay').show();
-        return true;
+        $('#phrase ul li').remove();
+        $('.key').attr('disable', true).removeClass('wrong').removeClass('chosen');
+        $(".tries img").attr("src", "images/liveHeart.png");
     }
-   
+    
 };
