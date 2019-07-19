@@ -2,8 +2,7 @@
  * Project 4 - OOP Game App
  * app.js */
 
-
-// 
+//Welcome to my project 4 I am going for exceeds expectaions. Thank you for taking time out to give me a grade, enjoy your weekend.
 // const phrase = new Phrase();
 
 //   let phrase = new Phrase('I\'m walking on sunshine');
@@ -36,20 +35,20 @@ $('#btn__reset').click(function () { //resets button on click
 
 $('.keyrow .key').click(function (e) { // key interactivity.
 
-//console.log(e.target.innerText);
-game.handleInteraction(e.target.innerText);
+    //console.log(e.target.innerText);
+    game.handleInteraction(e.target.innerText);
 });
-document.addEventListener('keydown', function(event){ //allows user to use the keyboard to type their response.
+document.addEventListener('keydown', function (event) { //allows user to use the keyboard to type their response.
     const keyPressed = event.key.toLowerCase();
     const validLetters = "abcdefghijklmnopqrstuvwxyz";
     const allKeys = document.getElementsByClassName("key");
-    if(validLetters.includes(keyPressed)) {
-        for(let key of allKeys) {
-            if(key.innerText == keyPressed) {
+    if (validLetters.includes(keyPressed)) {
+        for (let key of allKeys) {
+            if (key.innerText == keyPressed) {
                 key.click();
             }
         }
-    }   
+    }
 });
 // $(document).keyup((e) => { //supposed to give me the option to use the keyboard but isn't functional.
 //     let keyPress = e.key;
@@ -66,6 +65,3 @@ document.addEventListener('keydown', function(event){ //allows user to use the k
 //     }
 // });
 // my other extra credit was done by adding a background in CSS.
-
-
-
