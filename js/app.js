@@ -1,6 +1,9 @@
 /* Treehouse FSJS Techdegree
  * Project 4 - OOP Game App
  * app.js */
+
+
+// 
 // const phrase = new Phrase();
 
 //   let phrase = new Phrase('I\'m walking on sunshine');
@@ -31,13 +34,13 @@ $('#btn__reset').click(function () { //resets button on click
     game.startGame();
 });
 
-$('.keyrow .key').click(function (e) {
+$('.keyrow .key').click(function (e) { // key interactivity.
 
 //console.log(e.target.innerText);
 game.handleInteraction(e.target.innerText);
 });
 
-$(document).keyup((e) => {
+$(document).keyup((e) => { //supposed to give me the option to use the keyboard but isn't functional.
     let keyPress = e.key;
     if ($('#overlay').is(':visible')) {
         e.preventDefault;
@@ -51,18 +54,7 @@ $(document).keyup((e) => {
         keyPressed.push(keyPress);
     }
 });
+// my other extra credit was done by adding a background in CSS.
 
 
 
-
-// // Sets up click behavior on all button elements with the alert class
-//     // that exist in the DOM when the instruction was executed
-//     $( "button.alert" ).on( "click", function() {
-//         console.log( "A button with the alert class was clicked!" );
-//     });
-
-//     // Now create a new button element with the alert class. This button
-//     // was created after the click listeners were applied above, so it
-//     // will not have the same click behavior as its peers
-//     $( "<button class='alert'>Alert!</button>" ).appendTo( document.body );
-// });

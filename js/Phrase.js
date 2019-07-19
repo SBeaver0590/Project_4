@@ -1,7 +1,7 @@
 /* Treehouse FSJS Techdegree
  * Project 4 - OOP Game App
  * Phrase.js */
-class Phrase {
+class Phrase { //Phrase class object
     constructor(phrase) {
         this.phrase = phrase.toLowerCase();
     }
@@ -23,7 +23,7 @@ class Phrase {
             phraseUl[0].appendChild(li);
         }
     }
-    checkLetter(letter) {
+    checkLetter(letter) { // checks to see if the letter you chose matches the hidden letter from the phrase
         if (this.phrase.includes(letter)) {
             return true;
         } else {
@@ -31,7 +31,7 @@ class Phrase {
         }
 
     }
-    showMatchedLetter(letter) {
+    showMatchedLetter(letter) { // Shows the hidden letter you chose that matches. 
         $('.letter.' + letter).removeClass('hide').addClass('show');
     }
 

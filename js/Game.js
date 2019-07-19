@@ -15,19 +15,19 @@ class Game { //Here the game class is declared.
         this.activePhrase = null;
 
     }
-    getRandomPhrase() {
+    getRandomPhrase() { // Here I called getRandomPhrase() to generate a random phrase from the index.
         let phraseIndex = Math.floor(Math.random() * (this.phrases.length));
         return this.phrases[phraseIndex];
     }
 
 
-    startGame() {
+    startGame() { //This function hides the start game overlay to reveal the phrases and keys.
         $('#overlay').hide();
         this.activePhrase = this.getRandomPhrase();
         this.activePhrase.addPhraseToDisplay();
     }
 
-    checkForWin() {
+    checkForWin() { //this checkForWin() checks to see if the player has guessed all letters associated with the current phrase.
         let showLength = $('.show').length;
         let letterLength = $('.letter').length;
         if (showLength === letterLength) {
@@ -36,7 +36,7 @@ class Game { //Here the game class is declared.
 
     }
 
-    removeLife() {
+    removeLife() { // removeLife() eliminates a heart if you guess the wrong letter, and ends the game if you guess wrong 5 times.
 
         $('.tries img[src="images/liveHeart.png"]:first').attr('src', 'images/lostHeart.png', 'missed.tries');
         //     if('this.missed' > 4++){
@@ -48,7 +48,7 @@ class Game { //Here the game class is declared.
             this.missed++;
     }
 
-    handleInteraction(letter) {
+    handleInteraction(letter) { // Handles all the things the user does to win the game/lose the game i.e. showing the right/wrong buttons chosen.
         let button = 'button.key:contains(' + letter + ')';
         $(button).prop('disabled', true);
         if (!this.activePhrase.checkLetter(letter)) {
@@ -63,7 +63,7 @@ class Game { //Here the game class is declared.
         }
     };
 
-    gameOver(theyWon) {
+    gameOver(theyWon) { // This states that the user wins if all guesses are right you win and you win overlay shows vice versa. Then all is reset.
         $('#overlay').show();
         if (theyWon) {
             $('#overlay').addClass('win').removeClass('lose');
