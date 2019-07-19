@@ -27,7 +27,7 @@
 // logPhrase(game.getRandomPhrase());
 // logPhrase(game.getRandomPhrase());
 let game;
-let keyPressed = [];
+// let keyPressed = [];
 $('#btn__reset').click(function () { //resets button on click
 
     game = new Game();
@@ -39,21 +39,32 @@ $('.keyrow .key').click(function (e) { // key interactivity.
 //console.log(e.target.innerText);
 game.handleInteraction(e.target.innerText);
 });
-
-$(document).keyup((e) => { //supposed to give me the option to use the keyboard but isn't functional.
-    let keyPress = e.key;
-    if ($('#overlay').is(':visible')) {
-        e.preventDefault;
-    } 
-    else if (!keyPressed.includes(keyPress)) {
-        $('.keyrow .key').each((index, key) => {
-            if ($(key).text() === keyPress) {
-                game.handleInteraction(key);
+document.addEventListener('keydown', function(event){ //allows user to use the keyboard to type their response.
+    const keyPressed = event.key.toLowerCase();
+    const validLetters = "abcdefghijklmnopqrstuvwxyz";
+    const allKeys = document.getElementsByClassName("key");
+    if(validLetters.includes(keyPressed)) {
+        for(let key of allKeys) {
+            if(key.innerText == keyPressed) {
+                key.click();
             }
-        });
-        keyPressed.push(keyPress);
-    }
+        }
+    }   
 });
+// $(document).keyup((e) => { //supposed to give me the option to use the keyboard but isn't functional.
+//     let keyPress = e.key;
+//     if ($('#overlay').is(':visible')) {
+//         e.preventDefault;
+//     } 
+//     else if (!keyPressed.includes(keyPress)) {
+//         $('.keyrow .key').each((index, key) => {
+//             if ($(key).text() === keyPress) {
+//                 game.handleInteraction(key);
+//             }
+//         });
+//         keyPressed.push(keyPress);
+//     }
+// });
 // my other extra credit was done by adding a background in CSS.
 
 
