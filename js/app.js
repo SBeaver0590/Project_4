@@ -24,16 +24,34 @@
 // logPhrase(game.getRandomPhrase());
 // logPhrase(game.getRandomPhrase());
 let game;
-$('#btn__reset').click(function(){
+let keyPressed = [];
+$('#btn__reset').click(function () { //resets button on click
+
     game = new Game();
     game.startGame();
 });
 
-$('.keyrow .key').click(function(e){
-    //console.log(e.target.innerText);
-    game.handleInteraction(e.target.innerText
-    );
+$('.keyrow .key').click(function (e) {
+
+//console.log(e.target.innerText);
+game.handleInteraction(e.target.innerText);
 });
+
+$(document).keyup((e) => {
+    let keyPress = e.key;
+    if ($('#overlay').is(':visible')) {
+        e.preventDefault;
+    } 
+    else if (!keyPressed.includes(keyPress)) {
+        $('.keyrow .key').each((index, key) => {
+            if ($(key).text() === keyPress) {
+                game.handleInteraction(key);
+            }
+        });
+        keyPressed.push(keyPress);
+    }
+});
+
 
 
 
@@ -42,7 +60,7 @@ $('.keyrow .key').click(function(e){
 //     $( "button.alert" ).on( "click", function() {
 //         console.log( "A button with the alert class was clicked!" );
 //     });
- 
+
 //     // Now create a new button element with the alert class. This button
 //     // was created after the click listeners were applied above, so it
 //     // will not have the same click behavior as its peers

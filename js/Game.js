@@ -30,39 +30,39 @@ class Game { //Here the game class is declared.
     checkForWin() {
         let showLength = $('.show').length;
         let letterLength = $('.letter').length;
-        if(showLength === letterLength) {
+        if (showLength === letterLength) {
             this.gameOver(true);
         }
 
     }
 
     removeLife() {
-       
+
         $('.tries img[src="images/liveHeart.png"]:first').attr('src', 'images/lostHeart.png', 'missed.tries');
-    //     if('this.missed' > 4++){
-    //         gameOver(true);
-    // }
-        if(this.missed == 4) {
+        //     if('this.missed' > 4++){
+        //         gameOver(true);
+        // }
+        if (this.missed == 4) {
             this.gameOver(false);
-        }else
-        this.missed++;
+        } else
+            this.missed++;
     }
 
     handleInteraction(letter) {
-        let button = 'button.key:contains('+letter+')';
-        $(button).prop('disabled', true); 
+        let button = 'button.key:contains(' + letter + ')';
+        $(button).prop('disabled', true);
         if (!this.activePhrase.checkLetter(letter)) {
             $(button).addClass('wrong');
-            this.removeLife(); 
-        }else {
+            this.removeLife();
+        } else {
             $(button).addClass('chosen');
             this.activePhrase.showMatchedLetter(letter);
-            if(this.checkForWin(true)) {
-            this.gameOver();
+            if (this.checkForWin(true)) {
+                this.gameOver();
+            }
         }
-    }
     };
-    
+
     gameOver(theyWon) {
         $('#overlay').show();
         if (theyWon) {
@@ -74,7 +74,7 @@ class Game { //Here the game class is declared.
         }
         this.activePhrase = ''
         $('#phrase ul li').remove();
-        $('.key').removeAttr('disabled').removeClass('chosen').removeClass('wrong');
+        $('.key').removeAttr('disabled', true).removeClass('chosen').removeClass('wrong');
         $(".tries img").attr("src", "images/liveHeart.png");
     }
 };

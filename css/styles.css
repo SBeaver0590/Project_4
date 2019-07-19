@@ -27,7 +27,12 @@ body {
   justify-content: space-evenly;
   flex-direction: column;
   display: flex;
-  height: 100vh;
+  height: 100vh; 
+}
+
+body {
+  background-image: url('https://media.giphy.com/media/OsThTSlFor9Bu/giphy.gif');
+  background-size: cover;
 }
 
 li, ol, ul {
@@ -86,7 +91,7 @@ button {
 /* Title */
 
 .header {
-  color: #3a3f58;
+  color: #543a58;
 }
 
 
@@ -176,11 +181,11 @@ button {
 }
 
 .title {
-  color: #FFF;
+  color: rgb(243, 196, 196);
 }
 
 .start {
-  background-color: #3a3f58;
+  background-color: #4a3a58;
 }
 
 .start a {
@@ -196,7 +201,7 @@ button {
 }
 
 .lose {
-  background-color: #f5785f;
+  background-color: #f5af5f;
 }
 
 .lose a {
